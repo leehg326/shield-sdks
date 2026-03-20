@@ -1,0 +1,22 @@
+{
+  "name": "@getshield/js",
+  "version": "0.1.0",
+  "description": "Official Shield SDK for JavaScript/TypeScript",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "shield",
+    "audit",
+    "compliance",
+    "tamper-proof"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "typescript": "^5.0.0"
+  }
+}

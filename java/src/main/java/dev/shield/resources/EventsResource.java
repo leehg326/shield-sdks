@@ -1,0 +1,50 @@
+package dev.shield.resources;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import dev.shield.ShieldClient;
+import dev.shield.model.EventType;
+import dev.shield.model.ShieldEvent;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * Events resource — record events to a session's hash chain.
+ */
+public class EventsResource {
+
+    private final ShieldClient client;
+
+    public EventsResource(ShieldClient client) {
+        this.client = client;
+    }
+
+    /**
+     * Append an event to a session.
+     */
+    public ShieldEvent create(String sessionId, EventType eventType, String actor) {
+        return create(sessionId, eventType, actor, null);
+    }
+
+    /**
+     * Append an event with additional data to a session.
+     */
+    public ShieldEvent create(String sessionId, EventType eventType, String actor, Map<String, Object> data) {
+        return create(sessionId, eventType.getValue(), actor, data);
+    }
+
+    /**
+     * Append an event using a raw event type string.
+     */
+    public ShieldEvent create(String sessionId, String eventType, String actor, Map<String, Object> data) {
+        Map<String, Object> body = new HashMap<>();
+        body.put("event_type", eventType);
+        body.put("actor", actor);
+        if (data != null) {
+            body.put("data", data);
+        }
+
+        JsonNode response = client.request("POST", "/sessions/" + sessionId + "/events", body);
+        return client.getObjectMapper().convertValue(response, ShieldEvent.class);
+    }
+}
