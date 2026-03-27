@@ -5,7 +5,7 @@ Official Shield SDK for JavaScript/TypeScript. Provides a typed client for the S
 ## Installation
 
 ```bash
-npm install shield-js
+npm install @getshield/js
 ```
 
 ## Quick Start
@@ -13,7 +13,7 @@ npm install shield-js
 ### API Key Only
 
 ```typescript
-import { ShieldClient } from "shield-js";
+import { ShieldClient } from "@getshield/js";
 
 const shield = new ShieldClient("sk_live_your_api_key");
 ```
@@ -21,7 +21,7 @@ const shield = new ShieldClient("sk_live_your_api_key");
 ### With HMAC Request Signing
 
 ```typescript
-import { ShieldClient } from "shield-js";
+import { ShieldClient } from "@getshield/js";
 
 const shield = new ShieldClient("sk_live_your_api_key", {
   hmacSecret: "your_hmac_secret",
@@ -34,7 +34,7 @@ const shield = new ShieldClient("sk_live_your_api_key", {
 
 ```typescript
 const session = await shield.sessions.create({
-  title: "Vehicle Purchase — 2026 Honda Civic",
+  title: "Vehicle Purchase ??2026 Honda Civic",
 });
 
 console.log(session.id); // "ses_abc123..."
@@ -43,7 +43,7 @@ console.log(session.id); // "ses_abc123..."
 ### Create an Event
 
 ```typescript
-import { ShieldEventType } from "shield-js";
+import { ShieldEventType } from "@getshield/js";
 
 const event = await shield.events.create({
   session_id: session.id,
@@ -97,4 +97,4 @@ All event types are available as `ShieldEventType` enum members for type-safe us
 
 - Website: [https://getshield.dev](https://getshield.dev)
 - API Docs: [https://getshield.dev/docs](https://getshield.dev/docs)
-- GitHub: [https://github.com/getshield/shield-js](https://github.com/getshield/shield-js)
+- GitHub: [https://github.com/shieldapi/shield-sdks/tree/main/typescript](https://github.com/shieldapi/shield-sdks/tree/main/typescript)
