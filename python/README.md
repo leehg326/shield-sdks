@@ -16,7 +16,7 @@ import shield
 client = shield.Client(api_key="sk_live_your_api_key")
 
 # Create a session
-session = client.sessions.create(title="123 Main St Closing")
+session = client.sessions.create(title="Contract Negotiation with Acme Corp")
 session_id = session["id"]
 
 # Record events
