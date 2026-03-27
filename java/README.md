@@ -47,10 +47,10 @@ Add the JitPack repository:
 ## Quick Start
 
 ```java
-import dev.shield.ShieldClient;
-import dev.shield.model.ShieldSession;
-import dev.shield.model.ShieldEvent;
-import dev.shield.model.EventType;
+import dev.getshield.ShieldClient;
+import dev.getshield.model.ShieldSession;
+import dev.getshield.model.ShieldEvent;
+import dev.getshield.model.EventType;
 
 import java.util.Map;
 
@@ -109,8 +109,8 @@ Files.write(Path.of("audit-trail.pdf"), pdfBytes);
 ## Spring Boot Integration
 
 ```java
-import dev.shield.ShieldClient;
-import dev.shield.model.EventType;
+import dev.getshield.ShieldClient;
+import dev.getshield.model.EventType;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -125,8 +125,8 @@ public class ShieldConfig {
 ```
 
 ```java
-import dev.shield.ShieldClient;
-import dev.shield.model.EventType;
+import dev.getshield.ShieldClient;
+import dev.getshield.model.EventType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -181,7 +181,7 @@ The SDK includes all 37 events from the Shield Standard Event Taxonomy v1.0:
 ## Error Handling
 
 ```java
-import dev.shield.exception.ShieldException;
+import dev.getshield.exception.ShieldException;
 
 try {
     client.sessions().create("My Session");

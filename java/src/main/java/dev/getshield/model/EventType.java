@@ -1,4 +1,4 @@
-package dev.shield.model;
+package dev.getshield.model;
 
 /**
  * Shield Standard Event Taxonomy v1.0 (37 events).

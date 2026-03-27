@@ -1,8 +1,8 @@
-package dev.shield.resources;
+package dev.getshield.resources;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import dev.shield.ShieldClient;
-import dev.shield.model.ShieldSession;
+import dev.getshield.ShieldClient;
+import dev.getshield.model.ShieldSession;
 
 import java.util.Map;
 

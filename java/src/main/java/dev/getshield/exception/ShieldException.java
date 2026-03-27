@@ -1,4 +1,4 @@
-package dev.shield.exception;
+package dev.getshield.exception;
 
 /**
  * Exception thrown when the Shield API returns a non-2xx response.

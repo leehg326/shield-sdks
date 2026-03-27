@@ -1,7 +1,7 @@
-package dev.shield.resources;
+package dev.getshield.resources;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import dev.shield.ShieldClient;
+import dev.getshield.ShieldClient;
 
 /**
  * Verify resource — verify session hash chain integrity.

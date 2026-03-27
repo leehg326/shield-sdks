@@ -1,9 +1,9 @@
-package dev.shield.resources;
+package dev.getshield.resources;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import dev.shield.ShieldClient;
-import dev.shield.model.EventType;
-import dev.shield.model.ShieldEvent;
+import dev.getshield.ShieldClient;
+import dev.getshield.model.EventType;
+import dev.getshield.model.ShieldEvent;
 
 import java.util.HashMap;
 import java.util.Map;

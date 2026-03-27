@@ -1,11 +1,11 @@
-package dev.shield;
+package dev.getshield;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dev.shield.exception.ShieldException;
-import dev.shield.resources.EventsResource;
-import dev.shield.resources.SessionsResource;
-import dev.shield.resources.VerifyResource;
+import dev.getshield.exception.ShieldException;
+import dev.getshield.resources.EventsResource;
+import dev.getshield.resources.SessionsResource;
+import dev.getshield.resources.VerifyResource;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
