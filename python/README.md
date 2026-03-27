@@ -1,6 +1,6 @@
 # Shield Python SDK
 
-Official Python SDK for [Shield](https://getshield.dev) — tamper-evident session recording for real estate transactions.
+Official Python SDK for [Shield](https://getshield.dev) ??tamper-evident session recording for online business transactions.
 
 ## Installation
 
@@ -64,8 +64,8 @@ client = shield.Client(
 
 When an HMAC secret is configured, the SDK computes a signature for each request:
 
-- `X-Shield-Timestamp` — Unix timestamp of the request
-- `X-Shield-Signature` — HMAC-SHA256 of `{timestamp}.{METHOD}.{path}.{SHA256(body)}`
+- `X-Shield-Timestamp` ??Unix timestamp of the request
+- `X-Shield-Signature` ??HMAC-SHA256 of `{timestamp}.{METHOD}.{path}.{SHA256(body)}`
 
 The server validates these headers to ensure requests have not been tampered with or replayed.
 
@@ -181,7 +181,7 @@ async def verify_session(session_id: str):
 
 ## Event Types Reference
 
-Shield Standard Event Taxonomy v1.0 — 37 event types across 7 categories:
+Shield Standard Event Taxonomy v1.0 ??37 event types across 7 categories:
 
 ### Party Events
 | Event Type | Description |
