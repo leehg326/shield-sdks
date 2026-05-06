@@ -5,7 +5,7 @@ Official Python SDK for [Shield](https://getshield.dev) ??tamper-evident session
 ## Installation
 
 ```bash
-pip install shield-python
+pip install shield-python==0.1.6
 ```
 
 ## Quick Start
@@ -43,7 +43,7 @@ client.events.create(
 
 # Verify session integrity
 result = client.verify.session(session_id)
-print(result["intact"])  # True
+print(result["valid"])  # True
 
 # Export session
 pdf_bytes = client.sessions.export(session_id, format="pdf")
@@ -112,7 +112,7 @@ def sign_agreement(session_id):
         session_id=session_id,
         event_type="shield.agreement.signed",
         actor=data["signer_email"],
-        data={"document": data["document_name"], "ip": request.remote_addr},
+        data={"document": data["document_name"]},
     )
     return jsonify({"status": "signed"}), 200
 ```
@@ -179,9 +179,31 @@ async def verify_session(session_id: str):
     return client.verify.session(session_id)
 ```
 
+## Error Handling
+
+```python
+from shield.exceptions import ShieldError
+
+try:
+    event = client.events.create(
+        session_id=session_id,
+        event_type="shield.agreement.signed",
+        actor="user@company.com",
+    )
+except ShieldError as e:
+    if e.code == "plan_limit_exceeded":
+        # notify admin to upgrade
+        pass
+    elif e.code == "rate_limited":
+        import time
+        time.sleep(e.retry_after)
+    else:
+        raise
+```
+
 ## Event Types Reference
 
-Shield Standard Event Taxonomy v1.0 ??37 event types across 7 categories:
+Shield Standard Event Taxonomy v1.0 — 39 event types across 8 categories:
 
 ### Party Events
 | Event Type | Description |

@@ -5,7 +5,7 @@ Official Shield SDK for JavaScript/TypeScript. Provides a typed client for the S
 ## Installation
 
 ```bash
-npm install @getshield/js
+npm install @getshield/js@0.1.6
 ```
 
 ## Quick Start
@@ -63,7 +63,7 @@ const result = await shield.verify.session(session.id);
 
 console.log(result.valid);           // true
 console.log(result.verified_events); // 12
-console.log(result.tsa_status);      // "verified"
+console.log(result.tsa_status);      // "granted"
 ```
 
 ### Export a Session
@@ -76,9 +76,56 @@ const jsonData = await shield.sessions.export(session.id, { format: "json" });
 const pdfResponse = await shield.sessions.export(session.id, { format: "pdf" });
 ```
 
+## Express Integration
+
+```typescript
+import express from "express";
+import { ShieldClient, ShieldEventType } from "@getshield/js";
+
+const app = express();
+const shield = new ShieldClient(process.env.SHIELD_API_KEY!);
+
+app.post("/contracts/:id/sign", async (req, res) => {
+  await shield.events.create({
+    session_id: req.params.id,
+    event_type: ShieldEventType.AgreementSigned,
+    actor: req.user.email,
+    data: { ip: req.ip, method: "digital" },
+  });
+  res.json({ signed: true });
+});
+```
+
+## Error Handling
+
+```typescript
+import { ShieldError } from "@getshield/js";
+
+try {
+  const event = await shield.events.create({
+    session_id: "ses_abc123",
+    event_type: ShieldEventType.AgreementSigned,
+    actor: "user@example.com",
+  });
+} catch (e) {
+  if (e instanceof ShieldError) {
+    switch (e.code) {
+      case "plan_limit_exceeded":
+        // Handle quota exceeded
+        break;
+      case "rate_limited":
+        // Retry after e.retryAfter seconds
+        break;
+      default:
+        throw e;
+    }
+  }
+}
+```
+
 ## Event Types
 
-Shield Standard Event Taxonomy v1.0 defines 37 event types across 7 categories:
+Shield Standard Event Taxonomy v1.0 defines 39 event types across 8 categories:
 
 | Category | Events |
 |---|---|

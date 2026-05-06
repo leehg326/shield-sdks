@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "shield-python"
-version = "0.1.5"
+version = "0.1.6"
 description = "Official Shield SDK for Python"
 readme = "README.md"
 license = {text = "MIT"}
@@ -13,4 +13,4 @@ dependencies = ["requests>=2.28.0"]
 
 [project.urls]
 Homepage = "https://getshield.dev"
-Documentation = "https://docs.getshield.dev"
+Documentation = "https://getshield.dev/docs"

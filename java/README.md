@@ -10,33 +10,14 @@ Official Java SDK for [Shield](https://getshield.dev) — tamper-proof audit tra
 <dependency>
     <groupId>dev.getshield</groupId>
     <artifactId>shield-java</artifactId>
-    <version>0.1.1</version>
+    <version>0.1.6</version>
 </dependency>
 ```
 
 ### Gradle
 
 ```groovy
-implementation 'dev.getshield:shield-java:0.1.2'
-```
-
-### JitPack
-
-Add the JitPack repository:
-
-```xml
-<repositories>
-    <repository>
-        <id>jitpack.io</id>
-        <url>https://jitpack.io</url>
-    </repository>
-</repositories>
-
-<dependency>
-    <groupId>com.github.leehg326</groupId>
-    <artifactId>shield</artifactId>
-    <version>0.1.1</version>
-</dependency>
+implementation 'dev.getshield:shield-java:0.1.6'
 ```
 
 ## Requirements
@@ -66,7 +47,7 @@ ShieldEvent event = client.events().create(
     session.getId(),
     EventType.AGREEMENT_SIGNED,
     "user@company.com",
-    Map.of("channel", "email", "ip", "203.0.113.1")
+    Map.of("channel", "email")
 );
 System.out.println("Event recorded: " + event.getHash());
 
@@ -196,4 +177,4 @@ try {
 
 - [Shield Dashboard](https://getshield.dev)
 - [API Documentation](https://getshield.dev/docs)
-- [GitHub](https://github.com/leehg326/shield/tree/main/sdk/java)
+- [GitHub](https://github.com/shieldapi/shield-sdks/tree/main/java)
