@@ -1,8 +1,0 @@
-dev\getshield\resources\EventsResource.class
-dev\getshield\resources\VerifyResource.class
-dev\getshield\exception\ShieldException.class
-dev\getshield\model\ShieldEvent.class
-dev\getshield\model\ShieldSession.class
-dev\getshield\ShieldClient.class
-dev\getshield\model\EventType.class
-dev\getshield\resources\SessionsResource.class

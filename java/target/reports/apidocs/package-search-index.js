@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html","k":"18"},{"l":"dev.getshield"},{"l":"dev.getshield.exception"},{"l":"dev.getshield.model"},{"l":"dev.getshield.resources"}];updateSearchResults();
