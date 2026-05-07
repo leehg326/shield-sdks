@@ -54,6 +54,11 @@ System.out.println("Event recorded: " + event.getHash());
 // Verify the hash chain
 var result = client.verify().session(session.getId());
 System.out.println("Chain valid: " + result.get("valid").asBoolean());
+System.out.println("Total events: " + result.get("total_events").asInt());
+System.out.println("Verified events: " + result.get("verified_events").asInt());
+System.out.println("Broken at: " + result.get("broken_at"));            // null or sequence number
+System.out.println("TSA status: " + result.get("tsa_status").asText()); // "none" | "pending" | "success" | "failed"
+System.out.println("TSA timestamp: " + result.get("tsa_timestamp"));    // null or ISO 8601 timestamp
 ```
 
 ## HMAC Authentication

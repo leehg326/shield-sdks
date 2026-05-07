@@ -43,7 +43,12 @@ client.events.create(
 
 # Verify session integrity
 result = client.verify.session(session_id)
-print(result["valid"])  # True
+print(result["valid"])            # True
+print(result["total_events"])     # 3
+print(result["verified_events"])  # 3
+print(result["broken_at"])        # None (or sequence number if tampered)
+print(result["tsa_status"])       # "none" | "pending" | "success" | "failed"
+print(result["tsa_timestamp"])    # None or ISO 8601 timestamp
 
 # Export session
 pdf_bytes = client.sessions.export(session_id, format="pdf")

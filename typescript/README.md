@@ -61,9 +61,12 @@ const event = await shield.events.create({
 ```typescript
 const result = await shield.verify.session(session.id);
 
-console.log(result.valid);           // true
-console.log(result.verified_events); // 12
-console.log(result.tsa_status);      // "granted"
+console.log(result.valid);            // true
+console.log(result.total_events);     // 12
+console.log(result.verified_events);  // 12
+console.log(result.broken_at);        // null (or sequence number if tampered)
+console.log(result.tsa_status);       // "none" | "pending" | "success" | "failed"
+console.log(result.tsa_timestamp);    // null or ISO 8601 timestamp
 ```
 
 ### Export a Session
